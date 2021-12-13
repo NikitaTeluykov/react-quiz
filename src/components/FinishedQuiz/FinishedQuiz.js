@@ -2,6 +2,7 @@ import classes from './FinishedQuiz.module.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faTimes} from "@fortawesome/free-solid-svg-icons";
 import Button from "../UI/Button/Button";
+import {Link} from "react-router-dom";
 
 const FinishedQuiz = props => {
     const successCount = Object.keys(props.results)
@@ -41,7 +42,9 @@ const FinishedQuiz = props => {
 
             <div>
                 <Button onClick ={props.onRetry} type="primary">Повторить</Button>
-                <Button onClick ={props.onRetry} type="success">Перейти в список тестов</Button>
+                <Link to="/">
+                    <Button onClick ={props.onRetry} type="success">Перейти в список тестов</Button>
+                </Link>
             </div>
         </div>
     )
