@@ -1,34 +1,25 @@
-import classes from './MenuToggle.module.css'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faTimes} from "@fortawesome/free-solid-svg-icons";
-
+import React from 'react'
+import classes from './MenuToggle.css'
 
 const MenuToggle = props => {
-    const cls = [
-        classes.MenuToggle
-    ]
+  const cls = [
+    classes.MenuToggle,
+    'fa'
+  ]
 
-    const icon = () => {
-        if(props.isOpen) {
-            cls.push(classes.open)
-            return <FontAwesomeIcon className={cls.join(' ')}
-                                    icon={faTimes}
-                                    onClick={props.onToggle}
-            />
-        }
-        else{
-            return <FontAwesomeIcon className={cls.join(' ')}
-                                    icon={faBars}
-                                    onClick={props.onToggle}
-            />
-        }
-    }
+  if (props.isOpen) {
+    cls.push('fa-times')
+    cls.push(classes.open)
+  } else {
+    cls.push('fa-bars')
+  }
 
-    return (
-        <>
-            {icon()}
-        </>
-    )
+  return (
+    <i
+      className={cls.join(' ')}
+      onClick={props.onToggle}
+    />
+  )
 }
 
 export default MenuToggle
